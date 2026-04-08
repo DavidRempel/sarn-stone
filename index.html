@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fjord & Fawn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FAF8F5;
+  --warm-taupe: #8B7355;
+  --deep-earth: #2C2822;
+  --soft-sage: #A8B5A0;
+  --oatmeal: #E8E2D9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--deep-earth);
+  background: var(--cream);
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-up { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-in { animation: fadeIn 1.2s ease both; }
+
+section { opacity: 0; animation: fadeIn 1s ease forwards; }
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+
+/* Header */
+header {
+  padding: 28px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.08);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--warm-taupe);
+  letter-spacing: 0.04em;
+}
+nav { display: flex; gap: 32px; flex-wrap: wrap; }
+nav a {
+  color: var(--deep-earth);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--warm-taupe); }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 100px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-earth);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+.hero p {
+  font-size: 17px;
+  color: var(--warm-taupe);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+.hero-img {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 24px;
+  margin: 60px auto 0;
+  display: block;
+  box-shadow: 0 24px 80px rgba(44, 40, 34, 0.14);
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.8s forwards;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-primary {
+  background: var(--warm-taupe);
+  color: var(--cream);
+  border: 1px solid var(--warm-taupe);
+}
+.btn-primary:hover {
+  background: var(--deep-earth);
+  border-color: var(--deep-earth);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--warm-taupe);
+  color: var(--warm-taupe);
+}
+.btn-outline:hover {
+  background: var(--warm-taupe);
+  color: var(--cream);
+}
+
+/* Section */
+.section { padding: 120px 0; }
+.section-alt { background: #FFFFFF; }
+
+/* Features */
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--warm-taupe);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-earth);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.section-sub {
+  font-size: 15px;
+  max-width: 520px;
+  margin: 0 auto 64px;
+  text-align: center;
+  color: var(--warm-taupe);
+  opacity: 0.85;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2px;
+  background: var(--oatmeal);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.feature {
+  background: var(--cream);
+  padding: 48px 36px;
+  text-align: center;
+  transition: background 0.4s;
+}
+.feature:hover { background: #fff; }
+.feature-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+.feature h3 {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 12px;
+  color: var(--deep-earth);
+}
+.feature p {
+  font-size: 14px;
+  color: var(--warm-taupe);
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
+/* Product detail */
+.product-detail-img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 16px 64px rgba(44, 40, 34, 0.10);
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+.about-img {
+  border-radius: 20px;
+  width: 100%;
+  object-fit: contain;
+  background: var(--oatmeal);
+  box-shadow: 0 12px 48px rgba(44, 40, 34, 0.10);
+}
+.about-text h2 {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 28px;
+  color: var(--deep-earth);
+}
+.about-text p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: var(--deep-earth);
+  opacity: 0.78;
+  line-height: 1.9;
+}
+
+/* Testimonials */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) { .testimonial-grid { grid-template-columns: 1fr; } }
+.testimonial {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 48px;
+  border: 1px solid rgba(139, 115, 85, 0.12);
+}
+.testimonial p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--deep-earth);
+  margin-bottom: 24px;
+}
+.testimonial cite {
+  font-size: 12px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--warm-taupe);
+}
+
+/* CTA */
+.cta {
+  background: var(--deep-earth);
+  color: var(--cream);
+  text-align: center;
+  padding: 120px 0;
+}
+.cta h2 {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: var(--cream);
+}
+.cta p {
+  font-size: 15px;
+  max-width: 400px;
+  margin: 0 auto 48px;
+  opacity: 0.7;
+  color: var(--cream);
+}
+.cta .btn-primary {
+  background: var(--cream);
+  color: var(--deep-earth);
+  border-color: var(--cream);
+}
+.cta .btn-primary:hover {
+  background: var(--warm-taupe);
+  border-color: var(--warm-taupe);
+  color: var(--cream);
+}
+
+/* Footer */
+footer {
+  background: var(--deep-earth);
+  color: rgba(250, 248, 245, 0.45);
+  padding: 48px 0;
+  font-size: 13px;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+footer a {
+  color: rgba(250, 248, 245, 0.55);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+footer a:hover { color: var(--cream); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">Fjord &amp; Fawn</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>An invitation to pause.</h1>
+    <p>Silicone stepping stones cast from the textures of real river rock — designed for the way children move, and the way a home looks when it is loved.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Join the Waitlist</a>
+      <a href="#about" class="btn btn-outline">Our Story</a>
+    </div>
+    <img src="kids-rock.jpg" alt="Child playing on Fjord & Fawn stepping stones" class="hero-img">
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-label">The Collection</div>
+    <div class="section-title">Heirlooms for the modern home.</div>
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">🌿</span>
+        <h3>Biomimetic Texture</h3>
+        <p>Cast from the grooves and ridges of natural river stone. Every surface holds the memory of water and time.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🛡️</span>
+        <h3>Quiet Safety</h3>
+        <p>Heavy, non-slip silicone that grips any floor — and grips your attention only when it earns it.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎨</span>
+        <h3>Earth Tones</h3>
+        <p>Colors drawn from riverbeds and forests. Stones that belong on a coffee table as much as in a playroom.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💪</span>
+        <h3>Built to Outlast</h3>
+        <p>Durable enough for the wildest leaps. Clean with a damp cloth, or pop them in the dishwasher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:960px;">
+    <img src="multi_shot.jpg" alt="Fjord & Fawn stepping stones — the full collection" style="width:100%; border-radius:20px; box-shadow:0 20px 80px rgba(44,40,34,0.13); display:block;">
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <img src="multi_shot.jpg" alt="Fjord & Fawn stepping stones — the full collection" class="about-img" style="display:none;">
+      <div class="about-text">
+        <div class="section-label" style="text-align:left;">Our Story</div>
+        <h2>Bringing the Riverbank Home</h2>
+        <p>We watched our children longing for the forest floor, for the uneven joy of stone and root. We wanted to bring that grounding tactile experience indoors — without the neon plastic, without the clutter, without compromise.</p>
+        <p>Fjord & Fawn stepping stones are cast from real river rocks, capturing every ridge and groove. Made from food-grade silicone, they are heavy enough to stay put, soft enough to feel like the earth itself. They belong in a living room as naturally as a book or a candle.</p>
+        <p>This is not a toy. It is an invitation to move through the world with curiosity, balance, and care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">What Families Are Saying</div>
+    <div class="section-title">Stories of quiet play.</div>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"My daughter crosses the room differently now — more deliberately, more confidently. These stones have given her a kind of quiet courage."</p>
+        <cite>— Maria T., Vancouver, BC</cite>
+      </div>
+      <div class="testimonial">
+        <p>"I teach kindergarten. I've tried everything to get kids off screens. These are the first thing that actually works. They can't resist the feel of them."</p>
+        <cite>— James R., Early Childhood Educator</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <h2>Be the first to know.</h2>
+    <p>We are launching soon. Leave your name and we will reach out when Fjord & Fawn is ready to ship.</p>
+    <a href="mailto:hello@fjordandfawn.com" class="btn btn-primary">Join the Waitlist</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; 2026 Fjord &amp; Fawn. All rights reserved.</span>
+    <span>
+      <a href="mailto:hello@fjordandfawn.com">hello@fjordandfawn.com</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
