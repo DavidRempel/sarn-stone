@@ -273,6 +273,11 @@ img {
   align-items: center;
 }
 @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+.about-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
 .about-text h2 {
   font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 300;
@@ -481,6 +486,7 @@ footer a:hover { color: var(--bg-plaster); }
 <section class="section-alt" id="about">
   <div class="container">
     <div class="about-grid">
+      <img src="our-story.jpg" alt="Child stepping across Fjord &amp; Fawn stones in a warm home setting" class="about-img">
       <div class="about-text">
         <div class="section-label" style="text-align:left;">Our Story</div>
         <h2>Bringing the Riverbank Home</h2>
