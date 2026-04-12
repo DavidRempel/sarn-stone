@@ -417,7 +417,8 @@ img {
   padding: 14px 28px;
 }
 .waitlist-note,
-.waitlist-success {
+.waitlist-success,
+.waitlist-error {
   margin-top: 16px;
   font-size: 13px;
   color: rgba(247, 245, 240, 0.6);
@@ -426,7 +427,11 @@ img {
   display: none;
   color: var(--accent-sage);
 }
-.waitlist-form.is-success form { display: none; }
+.waitlist-error {
+  display: none;
+  color: #c07070;
+}
+.waitlist-form.is-success form#waitlistForm { display: none; }
 .waitlist-form.is-success .waitlist-success { display: block; }
 .hp-field {
   position: absolute;
@@ -557,19 +562,19 @@ footer a:hover { color: var(--bg-plaster); }
     <h2>Stay close to the launch.</h2>
     <p>Leave your name and we will reach out when Fjord &amp; Fawn is ready to ship.</p>
     <div class="waitlist-form" id="waitlistFormWrap">
-      <form action="https://formsubmit.co/hello@fjordandfawn.com" method="POST" id="waitlistForm">
+      <form id="waitlistForm" novalidate>
         <input type="hidden" name="_subject" value="Fjord &amp; Fawn waitlist signup">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://fjordandfawn.com/#contact?joined=1">
         <div class="hp-field" aria-hidden="true">
           <label>Leave this field empty <input type="text" name="_honey"></label>
         </div>
         <div class="waitlist-fields">
           <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
           <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
-          <button type="submit" class="btn btn-primary">Join the Waitlist</button>
+          <button type="submit" class="btn btn-primary" id="waitlistSubmitBtn">Join the Waitlist</button>
         </div>
+        <div class="waitlist-error" id="waitlistError" style="display:none;">Something went wrong — please try again.</div>
       </form>
       <div class="waitlist-success">Thanks, you're on the list. We'll be in touch when Fjord &amp; Fawn is ready.</div>
       <div class="waitlist-note">Thoughtful updates only. No noise.</div>
@@ -586,9 +591,44 @@ footer a:hover { color: var(--bg-plaster); }
 
 <script>
   (function () {
+    var form = document.getElementById('waitlistForm');
+    var wrap = document.getElementById('waitlistFormWrap');
+    var errorEl = document.getElementById('waitlistError');
+    var submitBtn = document.getElementById('waitlistSubmitBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorEl.style.display = 'none';
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      var data = new FormData(form);
+      var endpoint = 'https://formspree.io/f/xwpkjovn';
+
+      fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) {
+        if (r.ok) {
+          wrap.classList.add('is-success');
+          if (window.location.hash !== '#contact') {
+            window.location.hash = 'contact';
+          }
+        } else {
+          errorEl.style.display = 'block';
+          submitBtn.textContent = 'Join the Waitlist';
+          submitBtn.disabled = false;
+        }
+      }).catch(function () {
+        errorEl.style.display = 'block';
+        submitBtn.textContent = 'Join the Waitlist';
+        submitBtn.disabled = false;
+      });
+    });
+
     if (window.location.search.includes('joined=1')) {
-      var wrap = document.getElementById('waitlistFormWrap');
-      if (wrap) wrap.classList.add('is-success');
+      wrap.classList.add('is-success');
       if (window.location.hash !== '#contact') {
         window.location.hash = 'contact';
       }
