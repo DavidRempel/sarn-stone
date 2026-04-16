@@ -371,16 +371,24 @@ img {
 /* Design Principles */
 .principles {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 880px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 1080px;
   margin: 56px auto 0;
 }
-@media (max-width: 768px) { .principles { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .principles { grid-template-columns: 1fr; } }
 .principle {
+  background: var(--bg-plaster);
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  min-height: 100%;
 }
 .principle-num {
   font-family: 'Cormorant Garamond', serif;
@@ -388,16 +396,16 @@ img {
   font-style: italic;
   color: var(--border-light);
   line-height: 1;
-  flex-shrink: 0;
-  width: 40px;
+  margin-bottom: 18px;
 }
 .principle-text h4 {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 400;
   font-style: italic;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   color: var(--text-charcoal);
   font-family: 'Cormorant Garamond', serif;
+  line-height: 1.35;
 }
 .principle-text p {
   font-size: 13px;
