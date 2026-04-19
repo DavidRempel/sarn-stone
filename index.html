@@ -7,7 +7,8 @@
 <meta name="description" content="Fjord &amp; Fawn creates premium silicone stepping stones cast from real river rock, designed for quiet sensory play, balance, and beautiful everyday living.">
 <link rel="canonical" href="https://fjordandfawn.com/">
 <meta name="theme-color" content="#F7F5F0">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -98,13 +99,33 @@ header .container {
   gap: 16px;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 23px;
   font-weight: 500;
   color: var(--text-charcoal);
   letter-spacing: 0.05em;
 }
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 nav { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+@media (max-width: 720px) {
+  .logo {
+    gap: 10px;
+    font-size: 21px;
+  }
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+  }
+}
 nav a {
   position: relative;
   color: var(--text-charcoal);
@@ -660,7 +681,7 @@ footer .container {
 <script>history.scrollRestoration = 'manual';</script>
 <header>
   <div class="container">
-    <div class="logo">Sarn Stone</div>
+    <div class="logo"><img src="logo-mark.png" alt="" class="logo-mark">Sarn Stone</div>
     <nav>
       <a href="#about">About</a>
       <a href="#products">Products</a>
