@@ -181,6 +181,12 @@ nav a.is-active::after { transform: scaleX(1); }
   object-fit: cover;
   object-position: center;
   display: block;
+  animation: heroDrift 18s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+@keyframes heroDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.045) translate3d(-0.5%, -0.4%, 0); }
 }
 .hero-overlay {
   position: relative;
@@ -385,6 +391,51 @@ section { padding: 12vh 0; }
 }
 @media (max-width: 640px) {
   .features { grid-template-columns: 1fr; }
+}
+
+/* Tactile studies */
+.tactile-section {
+  padding: 14vh 0;
+  background: linear-gradient(180deg, var(--bg-plaster) 0%, #ECE8DE 100%);
+}
+.tactile-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.85fr 1.1fr;
+  gap: clamp(18px, 3vw, 36px);
+  align-items: end;
+  margin-top: 64px;
+}
+.tactile-card {
+  margin: 0;
+  position: relative;
+}
+.tactile-card:nth-child(2) { transform: translateY(-36px); }
+.tactile-card picture,
+.tactile-card img {
+  display: block;
+  width: 100%;
+}
+.tactile-card img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 22px 70px rgba(47,45,42,0.12);
+}
+.tactile-card figcaption {
+  margin-top: 18px;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-clay);
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .tactile-grid { grid-template-columns: 1fr; margin-top: 40px; }
+  .tactile-card:nth-child(2) { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner { animation: none; }
 }
 
 /* Image sections */
@@ -776,6 +827,38 @@ footer .container {
           <p>Durable enough for the wildest leaps. Clean with a damp cloth, or pop them in the dishwasher.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tactile Studies -->
+<section class="tactile-section">
+  <div class="container">
+    <div class="section-label">Tactile Studies</div>
+    <div class="section-title">Quiet surfaces, made to be touched.</div>
+    <div class="section-sub">Close crops of stone, silicone, and shadow — the material language behind the prototype.</div>
+    <div class="tactile-grid fade-up">
+      <figure class="tactile-card">
+        <picture>
+          <source srcset="texture-study-01.webp" type="image/webp">
+          <img src="texture-study-01.jpg" alt="Close-up of rounded stone forms on warm woven fabric" width="900" height="1125" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Rounded weight</figcaption>
+      </figure>
+      <figure class="tactile-card">
+        <picture>
+          <source srcset="texture-study-02.webp" type="image/webp">
+          <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" width="900" height="1125" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>River texture</figcaption>
+      </figure>
+      <figure class="tactile-card">
+        <picture>
+          <source srcset="texture-study-03.webp" type="image/webp">
+          <img src="texture-study-03.jpg" alt="Editorial crop of Sarn Stone prototype forms in neutral earth tones" width="900" height="1125" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Soft geometry</figcaption>
+      </figure>
     </div>
   </div>
 </section>
