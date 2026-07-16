@@ -65,7 +65,7 @@ a {
 a:hover { color: var(--slate-hover); }
 
 .container {
-  width: min(100%, 1292px);
+  width: min(100%, 1200px);
   margin: 0 auto;
   padding-inline: 56px;
 }
@@ -233,7 +233,7 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 76px clamp(42px, 6vw, 92px) 76px max(56px, calc((100vw - 1180px) / 2));
+  padding: 76px clamp(42px, 6vw, 92px) 76px max(56px, calc((100vw - 1088px) / 2));
 }
 
 .hero .eyebrow { color: var(--moss-accent); }
@@ -304,62 +304,37 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
 
 .motion-visual {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, .75fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 12px;
   align-items: end;
 }
 
-.motion-main { aspect-ratio: 4 / 3; }
-.motion-detail { aspect-ratio: 4 / 5; }
-
-.motion-caption {
-  grid-column: 1 / -1;
-  color: var(--olive);
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 16px;
-  font-style: italic;
-}
+.motion-main,
+.motion-detail { height: 340px; }
 
 /* Collection */
 .collection { background: var(--sand); }
 
-.collection-lead {
+.collection-head {
   display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-  gap: 42px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
   align-items: end;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 
-.launch-note {
-  margin-bottom: 9px;
-  color: var(--olive);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
+.collection-head p { font-size: 15px; }
 
-.launch-copy h3 { font-size: clamp(24px, 3vw, 32px); }
-.launch-copy p { margin-top: 12px; font-size: 15px; }
-
-.collection-image { aspect-ratio: 16 / 7; }
+.collection-image { height: 460px; }
 
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  margin-top: 34px;
-  border-top: 1px solid rgba(43, 38, 32, .16);
+  gap: 32px;
+  margin-top: 44px;
 }
 
-.feature {
-  padding: 26px 24px 4px;
-  border-left: 1px solid rgba(43, 38, 32, .16);
-}
-
-.feature:first-child { border-left: 0; padding-left: 0; }
-.feature:last-child { padding-right: 0; }
+.feature { padding: 0; }
 
 .feature h3 { margin-bottom: 10px; font-size: 19px; font-style: italic; }
 .feature p { font-size: 13px; }
@@ -368,27 +343,26 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
 .tactile-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(20px, 3vw, 36px);
+  gap: 12px;
+  margin-top: 36px;
 }
 
-.tactile-card img { aspect-ratio: 4 / 5; }
+.tactile-card img { height: 300px; }
 .tactile-card figcaption {
-  margin-top: 13px;
+  margin-top: 10px;
   color: var(--olive);
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: 18px;
+  font-size: 15px;
   font-style: italic;
-  text-align: center;
 }
 
 /* Story */
-.story { background: var(--moss); color: var(--moss-text); }
-
-.story-grid {
+.story {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(42px, 7vw, 92px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  padding: 0;
+  background: var(--moss);
+  color: var(--moss-text);
 }
 
 .story .eyebrow { color: var(--moss-accent); }
@@ -401,19 +375,19 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
   font-size: 19px;
   font-style: italic;
 }
-.story .photo { aspect-ratio: 4 / 3; }
-
-/* In use */
-.in-use-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-  gap: clamp(42px, 7vw, 92px);
-  align-items: center;
+.story picture { min-width: 0; }
+.story .photo {
+  height: 100%;
+  min-height: 480px;
+  border-radius: 0;
 }
-
-.in-use-grid .photo { aspect-ratio: 16 / 10; }
-.in-use-copy h2 { font-size: clamp(30px, 3.5vw, 38px); }
-.in-use-copy p { margin-top: 18px; font-size: 15px; }
+.story-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+  padding: 72px 64px;
+}
 
 /* Specs */
 .specs-grid {
@@ -463,8 +437,7 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
   line-height: 1.3;
 }
 
-.specs-visual .photo { aspect-ratio: 5 / 4; }
-.detail-photo { margin-top: 24px; aspect-ratio: 16 / 7; }
+.specs-visual .photo { height: 320px; }
 
 /* Beliefs */
 .beliefs { background: var(--sand-2); }
@@ -472,16 +445,11 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
 .belief-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(43, 38, 32, .12);
+  gap: 40px;
+  margin-top: 36px;
 }
 
-.belief {
-  padding: 30px 34px 0;
-  border-left: 1px solid rgba(43, 38, 32, .12);
-}
-
-.belief:first-child { border-left: 0; padding-left: 0; }
-.belief:last-child { padding-right: 0; }
+.belief { padding: 0; }
 
 .belief-num {
   margin-bottom: 18px;
@@ -492,8 +460,13 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
   line-height: 1;
 }
 
-.belief h3 { margin-bottom: 12px; font-size: 20px; }
-.belief p { font-size: 14px; }
+.belief h3 {
+  margin-bottom: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.belief p { font-size: 13.5px; }
 
 /* Waitlist and footer */
 .waitlist {
@@ -503,12 +476,12 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
   text-align: center;
 }
 
-.waitlist-inner { max-width: 760px; margin: 0 auto; }
+.waitlist-inner { max-width: 670px; margin: 0 auto; }
 .waitlist .eyebrow { color: var(--moss-accent); }
 .waitlist .eyebrow::before,
 .waitlist .eyebrow::after { background: rgba(245, 241, 232, .18); }
 .waitlist h2 { color: var(--cream); font-size: clamp(34px, 4vw, 46px); font-style: italic; }
-.waitlist-copy { max-width: 540px; margin: 16px auto 34px; color: var(--moss-text); font-size: 15px; }
+.waitlist-copy { max-width: 460px; margin: 16px auto 30px; color: var(--moss-text); font-size: 15px; }
 
 .waitlist-form { max-width: 670px; margin: 0 auto; }
 
@@ -550,7 +523,7 @@ nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
 .hp-field { position: absolute; left: -9999px; }
 
 footer {
-  margin-top: 82px;
+  margin-top: 64px;
   background: var(--moss);
   color: var(--moss-accent);
 }
@@ -575,9 +548,6 @@ footer a:hover { color: var(--cream); }
   .hero-grid { grid-template-columns: 1fr 1fr; }
   .hero-copy { padding-left: 42px; padding-right: 42px; }
   .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .feature:nth-child(3) { padding-left: 0; border-left: 0; }
-  .feature:nth-child(n + 3) { border-top: 1px solid rgba(43, 38, 32, .16); }
-  .belief { padding-inline: 24px; }
 }
 
 @media (max-width: 780px) {
@@ -587,19 +557,19 @@ footer a:hover { color: var(--cream); }
   nav > a:not(.btn) { display: none; }
   .hero-grid,
   .motion-grid,
-  .collection-lead,
-  .story-grid,
-  .in-use-grid,
+  .collection-head,
+  .story,
   .specs-grid { grid-template-columns: 1fr; }
   .hero-copy { padding: 62px 24px; }
   .hero-visual .photo { min-height: 340px; }
-  .story-copy { order: -1; }
+  .story .photo { min-height: 320px; }
+  .story-copy { max-width: none; padding: 56px 24px; }
+  .motion-main,
+  .motion-detail { height: 240px; }
+  .collection-image { height: 280px; }
   .tactile-grid { gap: 16px; }
   .belief-grid { grid-template-columns: 1fr; }
-  .belief,
-  .belief:first-child,
-  .belief:last-child { padding: 25px 0; border-left: 0; border-top: 1px solid rgba(43, 38, 32, .12); }
-  .belief:first-child { border-top: 0; }
+  .belief { padding: 0; }
 }
 
 @media (max-width: 560px) {
@@ -613,12 +583,10 @@ footer a:hover { color: var(--cream); }
   .feature-grid,
   .tactile-grid,
   .spec-list { grid-template-columns: 1fr; }
-  .motion-caption { grid-column: auto; }
   .feature,
   .feature:first-child,
   .feature:last-child,
-  .feature:nth-child(3) { padding: 22px 0; border-left: 0; border-top: 1px solid rgba(43, 38, 32, .16); }
-  .feature:first-child { border-top: 0; }
+  .feature:nth-child(3) { padding: 0; border: 0; }
   .tactile-grid { gap: 34px; }
   .waitlist { padding-top: 70px; }
   .waitlist-fields { grid-template-columns: 1fr; gap: 8px; }
@@ -660,7 +628,7 @@ footer a:hover { color: var(--cream); }
       <div class="hero-copy">
         <div class="eyebrow">Indoor sensory play, reimagined</div>
         <h1>A path across the living-room floor.</h1>
-        <p>Silicone stepping stones cast from real river rock — biomimetic textures, earth tones, and the quiet confidence that comes from learning to trust your footing.</p>
+        <p>Silicone stepping stones cast from real river rock — biomimetic texture, earth tones, and the quiet confidence of learning to trust your footing.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn">Join the Waitlist</a>
           <a href="#about" class="hero-link">Our story →</a>
@@ -680,8 +648,7 @@ footer a:hover { color: var(--cream); }
       <div class="motion-copy">
         <div class="eyebrow">Designed for motion</div>
         <h2 class="section-title">Not a toy pile. A path.</h2>
-        <p>Sarn Stone turns ordinary floor space into a small landscape: a route to test, rearrange, cross, return to, and master.</p>
-        <p>The shapes are quiet enough for the room, but rich enough for bare feet — weighted, tactile, and made to invite movement without shouting for attention.</p>
+        <p>Sarn Stone turns ordinary floor space into a small landscape: a route to test, rearrange, cross, return to, and master. Quiet enough for the room, rich enough for bare feet.</p>
         <div class="motion-notes" aria-label="Sarn Stone design notes">
           <article class="motion-note">
             <h3>Balance</h3>
@@ -702,26 +669,16 @@ footer a:hover { color: var(--cream); }
           <source srcset="texture-study-02.webp" type="image/webp">
           <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" class="photo motion-detail" width="900" height="1125" loading="lazy" decoding="async">
         </picture>
-        <p class="motion-caption">A landscape scaled for living rooms: warm, tactile, rearrangeable, and calm enough to leave out.</p>
       </div>
     </div>
   </section>
 
   <section class="section collection" id="products">
     <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">The Collection</div>
+      <div class="eyebrow">The Collection</div>
+      <div class="collection-head">
         <h2 class="section-title">Heirlooms for the modern home.</h2>
-        <p class="section-intro">A sculptural play set with enough presence to anchor the room, not disappear into it.</p>
-      </div>
-      <div class="collection-lead">
-        <div class="launch-copy">
-          <div class="launch-note">The Launch Set</div>
-          <h3>Six silicone stones, each shaped by a real river rock.</h3>
-        </div>
-        <div class="launch-copy">
-          <p>Designed for balance paths, obstacle courses, and open-ended sensory play, with enough weight and restraint to feel considered in a living room.</p>
-        </div>
+        <p>The Launch Set — six silicone stones, each shaped by a real river rock. Weighted, non-slip, and considered enough to leave out.</p>
       </div>
       <picture>
         <source srcset="multi_shot.webp" type="image/webp">
@@ -730,19 +687,19 @@ footer a:hover { color: var(--cream); }
       <div class="feature-grid">
         <article class="feature">
           <h3>Biomimetic texture</h3>
-          <p>Cast from the grooves and ridges of natural river stone. Every surface holds the memory of water and time.</p>
+          <p>Cast from the grooves and ridges of natural river stone. Every surface holds the memory of water.</p>
         </article>
         <article class="feature">
           <h3>Quiet safety</h3>
-          <p>Heavy, non-slip silicone that grips any floor and grips your attention only when it earns it.</p>
+          <p>Heavy, non-slip silicone that grips any floor — and your attention only when it earns it.</p>
         </article>
         <article class="feature">
           <h3>Earth tones</h3>
-          <p>Colors drawn from riverbeds and forests. Stones that belong on a coffee table as much as in a playroom.</p>
+          <p>Colors drawn from riverbeds and forests. As at home on a coffee table as in a playroom.</p>
         </article>
         <article class="feature">
           <h3>Built to outlast</h3>
-          <p>Durable enough for the wildest leaps. Clean with a damp cloth, or pop them in the dishwasher.</p>
+          <p>Durable enough for the wildest leaps. Wipe clean, or pop them in the dishwasher.</p>
         </article>
       </div>
     </div>
@@ -750,10 +707,9 @@ footer a:hover { color: var(--cream); }
 
   <section class="section tactile">
     <div class="container">
-      <div class="section-heading centered">
-        <div class="eyebrow centered">Tactile Studies</div>
+      <div class="section-heading">
+        <div class="eyebrow">Tactile Studies</div>
         <h2 class="section-title">Quiet surfaces, made to be touched.</h2>
-        <p class="section-intro">Close crops of stone, silicone, and shadow — the material language behind the prototype.</p>
       </div>
       <div class="tactile-grid">
         <figure class="tactile-card">
@@ -781,30 +737,16 @@ footer a:hover { color: var(--cream); }
     </div>
   </section>
 
-  <section class="section story on-moss" id="about">
-    <div class="container story-grid">
+  <section class="story on-moss" id="about">
+    <picture>
+      <source srcset="kids-rock-alt.webp" type="image/webp">
       <img src="kids-rock-alt.jpg" alt="Child stepping across Sarn Stone stepping stones in a warm home setting" class="photo" width="1280" height="697" loading="lazy" decoding="async">
-      <div class="story-copy">
-        <div class="eyebrow">Our Story</div>
-        <h2>Bringing the riverbank home.</h2>
-        <p>We watched our children longing for the forest floor — for the uneven joy of stone and root. We wanted to bring that grounding tactile experience indoors, without the neon plastic, without the clutter, without compromise.</p>
-        <p>Sarn Stone stepping stones are cast from real river rocks, capturing every ridge and groove. Made from food-grade silicone, they are heavy enough to stay put, soft enough to feel like the earth itself. They belong in a living room as naturally as a book or a candle.</p>
-        <p class="story-closing">This is not a toy. It is an invitation to move through the world with curiosity, balance, and care.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section in-use">
-    <div class="container in-use-grid">
-      <picture>
-        <source srcset="site-reference-2026-05-12.webp" type="image/webp">
-        <img src="site-reference-2026-05-12.jpg" alt="Child balancing across Sarn Stone stepping stones in a warm playroom" class="photo" width="1280" height="696" loading="lazy" decoding="async">
-      </picture>
-      <div class="in-use-copy">
-        <div class="eyebrow">In Use</div>
-        <h2>A play object that can stay in the room.</h2>
-        <p>The stones are meant to live somewhere between furniture, sculpture, and obstacle course — beautiful enough to leave out, sturdy enough to become part of the daily path.</p>
-      </div>
+    </picture>
+    <div class="story-copy">
+      <div class="eyebrow">Our Story</div>
+      <h2>Bringing the riverbank home.</h2>
+      <p>We watched our children longing for the forest floor — the uneven joy of stone and root. Sarn Stone brings that grounding underfoot indoors: cast from real river rocks in food-grade silicone, heavy enough to stay put, soft enough to feel like the earth itself.</p>
+      <p class="story-closing">This is not a toy. It is an invitation to move with curiosity, balance, and care.</p>
     </div>
   </section>
 
@@ -824,32 +766,31 @@ footer a:hover { color: var(--cream); }
       </div>
       <div class="specs-visual">
         <img src="stone-lineup.jpg" alt="Sarn Stone stepping stones arranged in a calm path across a woven rug" class="photo" width="800" height="477" loading="lazy" decoding="async">
-        <img src="stones-detail.jpg" alt="Close-up of natural stone textures and earth tones" class="photo detail-photo" width="1280" height="697" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
 
   <section class="section beliefs">
     <div class="container">
-      <div class="section-heading centered">
-        <div class="eyebrow centered">Why They Exist</div>
+      <div class="section-heading">
+        <div class="eyebrow">Why They Exist</div>
         <h2 class="section-title">Three things we believe about play.</h2>
       </div>
       <div class="belief-grid">
         <article class="belief">
           <div class="belief-num">01</div>
           <h3>Sensory input shapes confidence.</h3>
-          <p>Children who learn to trust uneven, textured surfaces develop better balance and body awareness. These stones give them that learning environment at home.</p>
+          <p>Children who learn to trust uneven, textured surfaces develop better balance and body awareness.</p>
         </article>
         <article class="belief">
           <div class="belief-num">02</div>
           <h3>Quiet materials invite deeper play.</h3>
-          <p>When a toy doesn't light up or make noise, a child's imagination has to do the work. These stones create space for longer, more focused sessions.</p>
+          <p>When a toy doesn't light up or make noise, imagination does the work — longer, more focused sessions.</p>
         </article>
         <article class="belief">
           <div class="belief-num">03</div>
           <h3>Objects meant to last should look that way.</h3>
-          <p>We designed these to age gracefully — to feel more themselves the more they're used, not to crack or fade or become furniture. Quality as a value, not a claim.</p>
+          <p>Designed to age gracefully — to feel more themselves the more they're used. Quality as a value, not a claim.</p>
         </article>
       </div>
     </div>
@@ -860,13 +801,13 @@ footer a:hover { color: var(--cream); }
       <div class="waitlist-inner">
         <div class="eyebrow centered">Waitlist</div>
         <h2>Stay close to the launch.</h2>
-        <p class="waitlist-copy">Leave your name and we'll be in touch when Sarn Stone is ready to ship. Thoughtful updates only, sent with a little more care than urgency.</p>
+        <p class="waitlist-copy">Leave your name and we'll be in touch when Sarn Stone is ready to ship. Thoughtful updates only — sent with more care than urgency.</p>
         <div class="waitlist-form" id="waitlistFormWrap">
           <form action="https://formsubmit.co/hello@sarnstone.com" method="POST" id="waitlistForm">
             <input type="hidden" name="_subject" value="Sarn Stone waitlist signup">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://sarnstone.com/#contact?joined=1">
+            <input type="hidden" name="_next" value="https://sarnstone.com/?joined=1#contact">
             <div class="hp-field" aria-hidden="true">
               <label>Leave this field empty <input type="text" name="_honey"></label>
             </div>
