@@ -6,1206 +6,924 @@
 <title>Sarn Stone</title>
 <meta name="description" content="Sarn Stone creates premium silicone stepping stones cast from real river rock, designed for quiet sensory play, balance, and beautiful everyday living.">
 <link rel="canonical" href="https://sarnstone.com/">
-<meta name="theme-color" content="#F7F5F0">
+<meta name="theme-color" content="#F5F1E8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..600&amp;family=Jost:wght@300..600&amp;display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg-plaster: #F7F5F0;
-  --bg-stone: #EAE6DF;
-  --text-charcoal: #2A2A2A;
-  --text-clay: #7A7265;
-  --accent-sage: #8B9484;
-  --accent-earth: #A89078;
-  --border-light: #D6D2C9;
+  --cream: #F5F1E8;
+  --sand: #E7DCC9;
+  --sand-2: #EFE9DB;
+  --clay: #A96F4E;
+  --clay-hover: #96613F;
+  --olive: #8A8262;
+  --slate: #71828A;
+  --slate-hover: #5C6E74;
+  --moss: #4A5450;
+  --ink: #2B2620;
+  --line: #E3DACA;
+  --moss-text: #D4DAD1;
+  --moss-accent: #AEB8A8;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--bg-plaster);
-  color: var(--text-charcoal);
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
   font-size: 16px;
-  line-height: 1.8;
+  font-weight: 300;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 5vw;
-}
+img { max-width: 100%; height: auto; }
 
-/* Typography */
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+h1, h2, h3, h4, p { text-wrap: pretty; }
+
+h1, h2, h3, h4 {
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text-charcoal);
+  line-height: 1.12;
 }
 
-.subheading {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-clay);
-  font-weight: 500;
+a {
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color .2s ease;
 }
 
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.fade-up { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.fade-in { animation: fadeIn 1.2s ease both; }
+a:hover { color: var(--slate-hover); }
 
-/* Header */
-header {
-  padding: 22px 0;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(247, 245, 240, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 100;
-  border-bottom: 1px solid var(--border-light);
-  transition: padding 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+.container {
+  width: min(100%, 1292px);
+  margin: 0 auto;
+  padding-inline: 56px;
 }
-header.scrolled {
-  padding: 14px 0;
-  background: rgba(247, 245, 240, 0.88);
-  box-shadow: 0 14px 40px rgba(42,42,42,0.06);
-  border-bottom-color: rgba(214, 210, 201, 0.8);
+
+.section {
+  padding-block: 80px;
 }
-header .container {
+
+.photo {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: sepia(.14) saturate(.92) brightness(1.03);
+}
+
+.on-moss .photo { filter: sepia(.1) saturate(.9); }
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 42px;
+}
+
+.section-heading.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 18px;
+  margin-bottom: 17px;
+  color: var(--olive);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .24em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
+
+.eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.eyebrow.centered { justify-content: center; }
+.eyebrow.centered::before,
+.eyebrow.centered::after {
+  content: '';
+  flex: 1;
+  max-width: 90px;
+  height: 1px;
+  background: var(--line);
+}
+
+.section-title {
+  font-size: clamp(30px, 3.5vw, 38px);
+  line-height: 1.15;
+}
+
+.section-intro {
+  max-width: 620px;
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 28px;
+  border: 1px solid var(--clay);
+  border-radius: 2px;
+  background: var(--clay);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .05em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+.btn:hover {
+  background: var(--clay-hover);
+  border-color: var(--clay-hover);
+  color: var(--cream);
+}
+
+/* Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 23px;
-  font-weight: 500;
-  color: var(--text-charcoal);
-  letter-spacing: 0.05em;
-}
-.logo-mark {
-  width: 42px;
-  height: 42px;
-  display: block;
-  object-fit: contain;
-  flex-shrink: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-}
-nav { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
-@media (max-width: 720px) {
-  .logo {
-    gap: 10px;
-    font-size: 21px;
-  }
-  .logo-mark {
-    width: 34px;
-    height: 34px;
-  }
-}
-nav a {
-  position: relative;
-  color: var(--text-charcoal);
-  text-decoration: none;
-  font-size: 11px;
+  color: var(--ink);
+  border: 0;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding-bottom: 6px;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  line-height: 1;
+  white-space: nowrap;
 }
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  opacity: 0.75;
-  transition: transform 0.3s ease;
+
+.logo:hover { color: var(--ink); }
+.logo svg { flex: none; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
 }
-nav a:hover,
-nav a.is-active { color: var(--text-clay); }
-nav a:hover::after,
-nav a.is-active::after { transform: scaleX(1); }
+
+nav > a:not(.btn) {
+  color: #5A5347;
+  border-bottom-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+nav > a:not(.btn):hover,
+nav > a.is-active:not(.btn) {
+  color: var(--slate-hover);
+  border-bottom-color: currentColor;
+}
+
+nav .btn { min-height: 42px; padding: 10px 20px; font-size: 13px; }
 
 /* Hero */
 .hero {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: flex-end;
-  padding: 0;
-  overflow: hidden;
-}
-.hero-picture {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #2A2A2A;
-  display: block;
-}
-.hero-banner {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border-radius: 0;
-  box-shadow: none;
-  animation: heroDrift 18s ease-in-out infinite alternate;
-  transform-origin: center;
-}
-@keyframes heroDrift {
-  from { transform: scale(1); }
-  to { transform: scale(1.045) translate3d(-0.5%, -0.4%, 0); }
-}
-.hero-overlay {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-height: 100%;
-  background: linear-gradient(to top, rgba(42,42,42,0.82) 0%, rgba(42,42,42,0.35) 50%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 8vw 10vh;
-}
-.hero-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: rgba(247,245,240,0.65);
-  font-weight: 400;
-  margin-bottom: 16px;
-}
-.hero-overlay h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 5.5vw, 5rem);
-  font-weight: 300;
-  font-style: italic;
-  color: #F7F5F0;
-  margin-bottom: 16px;
-  letter-spacing: -0.01em;
-  line-height: 1.08;
-  max-width: 520px;
-}
-.hero-overlay p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: rgba(247,245,240,0.78);
-  max-width: 420px;
-  line-height: 1.7;
-  margin-bottom: 36px;
-  letter-spacing: 0.01em;
-}
-.hero-cta {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.hero-cta .btn-primary {
-  background: #F7F5F0;
-  color: var(--text-charcoal);
-  border-color: #F7F5F0;
-}
-.hero-cta .btn-primary:hover {
-  background: transparent;
-  color: #F7F5F0;
-}
-.hero-cta .btn-outline {
-  border-color: rgba(247,245,240,0.45);
-  color: #F7F5F0;
-}
-.hero-cta .btn-outline:hover {
-  border-color: #F7F5F0;
+  background: var(--moss);
+  color: var(--moss-text);
 }
 
-/* Home terrain */
-.home-terrain {
-  padding: 13vh 0 11vh;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(168,144,120,0.14) 0%, rgba(168,144,120,0) 34%),
-    linear-gradient(180deg, #F7F5F0 0%, #EEE9DF 100%);
-}
-.terrain-layout {
+.hero-grid {
+  min-height: 520px;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
-  gap: clamp(34px, 6vw, 86px);
-  align-items: center;
-}
-.terrain-copy {
-  max-width: 430px;
-}
-.terrain-copy .section-label,
-.terrain-copy .section-title {
-  text-align: left;
-}
-.terrain-copy .section-title {
-  margin-bottom: 24px;
-}
-.terrain-copy p {
-  font-size: 15px;
-  color: rgba(42,42,42,0.76);
-  line-height: 1.9;
-  margin-bottom: 18px;
-}
-.terrain-notes {
-  display: grid;
-  gap: 1px;
-  background: rgba(214,210,201,0.8);
-  border: 1px solid rgba(214,210,201,0.8);
-  margin-top: 34px;
-}
-.terrain-note {
-  background: rgba(247,245,240,0.72);
-  padding: 20px 22px;
-}
-.terrain-note strong {
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 4px;
-}
-.terrain-note span {
-  display: block;
-  font-size: 12px;
-  color: var(--text-clay);
-  line-height: 1.7;
-}
-.terrain-visual {
-  position: relative;
-  min-height: 560px;
-}
-.terrain-main,
-.terrain-inset {
-  position: absolute;
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  box-shadow: 0 28px 80px rgba(47,45,42,0.16);
-}
-.terrain-main {
-  right: 0;
-  top: 0;
-  width: min(92%, 690px);
-  height: 470px;
-  object-position: center;
-}
-.terrain-inset {
-  left: 0;
-  bottom: 0;
-  width: min(43%, 280px);
-  aspect-ratio: 4 / 5;
-  object-position: center;
-  border: 12px solid var(--bg-plaster);
-}
-.terrain-caption {
-  position: absolute;
-  right: 6%;
-  bottom: 18px;
-  max-width: 270px;
-  padding: 18px 20px;
-  background: rgba(247,245,240,0.88);
-  color: var(--text-clay);
-  font-size: 12px;
-  line-height: 1.7;
-  box-shadow: 0 18px 50px rgba(47,45,42,0.12);
-}
-@media (max-width: 920px) {
-  .terrain-layout { grid-template-columns: 1fr; }
-  .terrain-copy { max-width: 620px; }
-  .terrain-visual { min-height: auto; display: grid; grid-template-columns: 1fr 0.65fr; gap: 16px; align-items: end; }
-  .terrain-main,
-  .terrain-inset,
-  .terrain-caption { position: static; width: 100%; }
-  .terrain-main { height: auto; aspect-ratio: 16 / 9; }
-  .terrain-inset { border-width: 8px; }
-  .terrain-caption { grid-column: 1 / -1; max-width: none; }
-}
-@media (max-width: 640px) {
-  .terrain-visual { grid-template-columns: 1fr; }
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
 }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 15px 32px;
-  border-radius: 0;
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid;
-}
-.btn-primary {
-  background: transparent;
-  color: var(--text-charcoal);
-  border-color: var(--text-charcoal);
-}
-.btn-primary:hover {
-  background: var(--text-charcoal);
-  color: var(--bg-plaster);
-}
-.btn-outline {
-  background: transparent;
-  border-color: var(--border-light);
-  color: var(--text-clay);
-}
-.btn-outline:hover {
-  border-color: var(--text-charcoal);
-  color: var(--text-charcoal);
-}
-
-/* Sections */
-section { padding: 12vh 0; }
-.section-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--text-clay);
-  font-weight: 500;
-  margin-bottom: 12px;
-  text-align: center;
-}
-.section-title {
-  font-size: clamp(1.9rem, 3.5vw, 3.2rem);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--text-charcoal);
-  margin-bottom: 20px;
-  text-align: center;
-  line-height: 1.15;
-}
-.section-sub {
-  font-size: 14px;
-  max-width: 480px;
-  margin: 0 auto 64px;
-  text-align: center;
-  color: var(--text-clay);
-  line-height: 1.85;
-}
-
-/* Product section */
-.product-showcase {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 32px;
-  align-items: stretch;
-}
-.product-hero-card {
-  background: var(--bg-stone);
-  padding: 20px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-}
-.product-hero-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 28px;
-}
-.product-note {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-clay);
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.product-hero-copy h3 {
-  font-size: clamp(1.7rem, 2.8vw, 2.6rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.08;
-  margin-bottom: 14px;
-}
-.product-hero-copy p {
-  font-size: 14px;
-  color: var(--text-clay);
-  line-height: 1.85;
-  max-width: 34rem;
-}
-
-/* Features */
-.features {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--bg-stone);
-  border-radius: 4px;
-  overflow: hidden;
-  align-self: stretch;
-}
-.feature {
-  background: var(--bg-plaster);
-  padding: 48px 36px;
-  text-align: center;
+.hero-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 220px;
+  padding: 76px clamp(42px, 6vw, 92px) 76px max(56px, calc((100vw - 1180px) / 2));
 }
-.feature h3 {
-  font-size: 20px;
-  font-weight: 400;
+
+.hero .eyebrow { color: var(--moss-accent); }
+.hero .eyebrow::after { background: rgba(245, 241, 232, .18); }
+
+.hero h1 {
+  max-width: 610px;
+  color: var(--cream);
+  font-size: clamp(40px, 5vw, 58px);
   font-style: italic;
-  margin-bottom: 12px;
-  color: var(--text-charcoal);
+  line-height: 1.1;
 }
-.feature p {
+
+.hero-copy > p {
+  max-width: 570px;
+  margin-top: 22px;
+  color: var(--moss-text);
+  font-size: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 32px;
+}
+
+.hero-link {
+  color: var(--moss-accent);
   font-size: 14px;
-  color: var(--text-clay);
-  line-height: 1.85;
 }
-@media (max-width: 980px) {
-  .product-showcase { grid-template-columns: 1fr; }
+
+.hero-link:hover { color: var(--cream); }
+
+.hero-visual { min-width: 0; }
+.hero-visual picture { display: block; width: 100%; height: 100%; }
+.hero-visual .photo { height: 100%; min-height: 520px; border-radius: 0; }
+
+/* Designed for motion */
+.motion-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(42px, 7vw, 96px);
+  align-items: center;
 }
-@media (max-width: 640px) {
-  .features { grid-template-columns: 1fr; }
+
+.motion-copy p { max-width: 520px; margin-top: 18px; font-size: 15px; }
+
+.motion-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 34px;
 }
+
+.motion-note {
+  padding-top: 16px;
+  border-top: 2px solid var(--slate);
+}
+
+.motion-note h3 {
+  margin-bottom: 7px;
+  font-size: 19px;
+  font-style: italic;
+}
+
+.motion-note p { margin: 0; font-size: 13px; }
+
+.motion-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .75fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.motion-main { aspect-ratio: 4 / 3; }
+.motion-detail { aspect-ratio: 4 / 5; }
+
+.motion-caption {
+  grid-column: 1 / -1;
+  color: var(--olive);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Collection */
+.collection { background: var(--sand); }
+
+.collection-lead {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.launch-note {
+  margin-bottom: 9px;
+  color: var(--olive);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.launch-copy h3 { font-size: clamp(24px, 3vw, 32px); }
+.launch-copy p { margin-top: 12px; font-size: 15px; }
+
+.collection-image { aspect-ratio: 16 / 7; }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid rgba(43, 38, 32, .16);
+}
+
+.feature {
+  padding: 26px 24px 4px;
+  border-left: 1px solid rgba(43, 38, 32, .16);
+}
+
+.feature:first-child { border-left: 0; padding-left: 0; }
+.feature:last-child { padding-right: 0; }
+
+.feature h3 { margin-bottom: 10px; font-size: 19px; font-style: italic; }
+.feature p { font-size: 13px; }
 
 /* Tactile studies */
-.tactile-section {
-  padding: 14vh 0;
-  background: linear-gradient(180deg, var(--bg-plaster) 0%, #ECE8DE 100%);
-}
 .tactile-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr 1.1fr;
-  gap: clamp(18px, 3vw, 36px);
-  align-items: end;
-  margin-top: 64px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 36px);
 }
-.tactile-card {
-  margin: 0;
-  position: relative;
-}
-.tactile-card:nth-child(2) { transform: translateY(-36px); }
-.tactile-card picture,
-.tactile-card img {
-  display: block;
-  width: 100%;
-}
-.tactile-card img {
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 22px 70px rgba(47,45,42,0.12);
-}
+
+.tactile-card img { aspect-ratio: 4 / 5; }
 .tactile-card figcaption {
-  margin-top: 18px;
-  font-size: 0.66rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-clay);
+  margin-top: 13px;
+  color: var(--olive);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
   text-align: center;
 }
-@media (max-width: 760px) {
-  .tactile-grid { grid-template-columns: 1fr; margin-top: 40px; }
-  .tactile-card:nth-child(2) { transform: none; }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-banner { animation: none; }
-}
+/* Story */
+.story { background: var(--moss); color: var(--moss-text); }
 
-/* Image sections */
-.section-img-wrap {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 5vw;
-}
-.section-img-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-}
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-}
-
-/* About */
-.section-alt { background: var(--bg-stone); }
-.about-grid {
+.story-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(42px, 7vw, 92px);
   align-items: center;
 }
-@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
-.about-text {
-  max-width: 460px;
-}
-.about-img {
-  width: 100%;
-  max-width: none;
-  display: block;
-  object-fit: cover;
-  border-radius: 4px;
-  justify-self: end;
-}
-.about-text h2 {
-  font-size: clamp(1.9rem, 3.2vw, 3.2rem);
-  font-weight: 400;
-  font-style: italic;
-  margin-bottom: 24px;
-  color: var(--text-charcoal);
-  line-height: 1.15;
-}
-.about-text p {
-  font-size: 15px;
-  margin-bottom: 18px;
-  color: var(--text-charcoal);
-  opacity: 0.8;
-  line-height: 1.9;
-}
 
-.lifestyle-card {
+.story .eyebrow { color: var(--moss-accent); }
+.story .eyebrow::after { background: rgba(245, 241, 232, .18); }
+.story h2 { color: var(--cream); font-size: clamp(30px, 3.5vw, 38px); font-style: italic; }
+.story p { margin-top: 18px; color: var(--moss-text); font-size: 15px; }
+.story .story-closing {
+  color: var(--moss-accent);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+}
+.story .photo { aspect-ratio: 4 / 3; }
+
+/* In use */
+.in-use-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(42px, 7vw, 92px);
   align-items: center;
 }
-.lifestyle-card picture {
-  display: block;
-  width: 100%;
-  justify-self: center;
-}
-.lifestyle-img {
-  width: 100%;
-  max-width: 680px;
-  display: block;
-  object-fit: cover;
-  justify-self: center;
-}
-.lifestyle-copy h3 {
-  font-size: clamp(1.7rem, 3vw, 2.7rem);
-  font-style: italic;
-  margin-bottom: 18px;
-}
-.lifestyle-copy p {
-  font-size: 15px;
-  color: var(--text-charcoal);
-  opacity: 0.8;
-  line-height: 1.9;
-}
-@media (max-width: 768px) {
-  .lifestyle-card { grid-template-columns: 1fr; gap: 28px; }
-}
+
+.in-use-grid .photo { aspect-ratio: 16 / 10; }
+.in-use-copy h2 { font-size: clamp(30px, 3.5vw, 38px); }
+.in-use-copy p { margin-top: 18px; font-size: 15px; }
 
 /* Specs */
 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--border-light);
-  border: 1px solid var(--border-light);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 56px;
-}
-.spec-item {
-  background: var(--bg-plaster);
-  padding: 36px 32px;
-  text-align: center;
-}
-@media (max-width: 900px) {
-  .specs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 640px) {
-  .specs-grid { grid-template-columns: 1fr; }
-}
-.spec-item .spec-icon {
-  font-size: 24px;
-  margin-bottom: 12px;
-  display: block;
-  opacity: 0.5;
-}
-.spec-item .spec-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-clay);
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-.spec-item .spec-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-style: italic;
-  color: var(--text-charcoal);
-  line-height: 1.4;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(42px, 7vw, 92px);
+  align-items: center;
 }
 
-/* Design Principles */
-.principles {
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.spec-item {
+  position: relative;
+  padding: 20px 0 19px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 27px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--slate);
+}
+
+.spec-label {
+  color: var(--olive);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.spec-value {
+  margin-top: 4px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.specs-visual .photo { aspect-ratio: 5 / 4; }
+.detail-photo { margin-top: 24px; aspect-ratio: 16 / 7; }
+
+/* Beliefs */
+.beliefs { background: var(--sand-2); }
+
+.belief-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--border-light);
-  border: 1px solid var(--border-light);
-  border-radius: 4px;
-  overflow: hidden;
-  max-width: 1080px;
-  margin: 56px auto 0;
+  border-top: 1px solid rgba(43, 38, 32, .12);
 }
-@media (max-width: 900px) { .principles { grid-template-columns: 1fr; } }
-.principle {
-  background: var(--bg-plaster);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 40px 32px;
-  min-height: 100%;
+
+.belief {
+  padding: 30px 34px 0;
+  border-left: 1px solid rgba(43, 38, 32, .12);
 }
-.principle-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-style: italic;
-  color: var(--border-light);
-  line-height: 1;
+
+.belief:first-child { border-left: 0; padding-left: 0; }
+.belief:last-child { padding-right: 0; }
+
+.belief-num {
   margin-bottom: 18px;
-}
-.principle-text h4 {
-  font-size: 19px;
-  font-weight: 400;
+  color: var(--slate);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 30px;
   font-style: italic;
-  margin-bottom: 12px;
-  color: var(--text-charcoal);
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1.35;
-}
-.principle-text p {
-  font-size: 13px;
-  color: var(--text-clay);
-  line-height: 1.8;
+  line-height: 1;
 }
 
-/* CTA */
-.cta {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #2F2D2A 0%, #262522 100%);
-  color: var(--bg-plaster);
+.belief h3 { margin-bottom: 12px; font-size: 20px; }
+.belief p { font-size: 14px; }
+
+/* Waitlist and footer */
+.waitlist {
+  padding-block: 86px 0;
+  background: var(--moss);
+  color: var(--moss-text);
   text-align: center;
-  padding: 16vh 0;
-}
-.cta::before {
-  content: '';
-  position: absolute;
-  inset: auto -12% -28% auto;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168,144,120,0.16) 0%, rgba(168,144,120,0) 70%);
-  pointer-events: none;
-}
-.cta::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1080px, 88vw);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(247,245,240,0), rgba(247,245,240,0.3), rgba(247,245,240,0));
-}
-.cta .container {
-  position: relative;
-  z-index: 2;
-}
-.cta-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 64px clamp(24px, 5vw, 64px);
-  border: 1px solid rgba(247,245,240,0.12);
-  background: linear-gradient(180deg, rgba(247,245,240,0.035), rgba(247,245,240,0.015));
-  box-shadow: 0 28px 80px rgba(0,0,0,0.2);
-  border-radius: 4px;
-}
-.cta-kicker {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: rgba(247,245,240,0.55);
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-.cta h2 {
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  font-weight: 300;
-  font-style: italic;
-  margin-bottom: 16px;
-  color: var(--bg-plaster);
-}
-.cta p {
-  font-size: 14px;
-  max-width: 460px;
-  margin: 0 auto 48px;
-  opacity: 0.65;
-  color: var(--bg-plaster);
-  line-height: 1.8;
-}
-.cta .btn-primary {
-  background: transparent;
-  color: var(--bg-plaster);
-  border-color: var(--bg-plaster);
-}
-.cta .btn-primary:hover {
-  background: var(--bg-plaster);
-  color: var(--text-charcoal);
 }
 
-/* Waitlist */
-.waitlist-form {
-  max-width: 520px;
-  margin: 0 auto;
-}
+.waitlist-inner { max-width: 760px; margin: 0 auto; }
+.waitlist .eyebrow { color: var(--moss-accent); }
+.waitlist .eyebrow::before,
+.waitlist .eyebrow::after { background: rgba(245, 241, 232, .18); }
+.waitlist h2 { color: var(--cream); font-size: clamp(34px, 4vw, 46px); font-style: italic; }
+.waitlist-copy { max-width: 540px; margin: 16px auto 34px; color: var(--moss-text); font-size: 15px; }
+
+.waitlist-form { max-width: 670px; margin: 0 auto; }
+
 .waitlist-fields {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 16px;
+  grid-template-columns: .8fr 1.2fr auto;
   align-items: stretch;
 }
+
 .waitlist-form input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(247,245,240,0.3);
-  padding: 13px 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--bg-plaster);
-  transition: border-color 0.4s ease;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid var(--cream);
+  border-right: 0;
   border-radius: 0;
-}
-.waitlist-form input::placeholder {
-  color: rgba(247, 245, 240, 0.38);
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
   font-weight: 300;
 }
-.waitlist-form input:focus {
-  outline: none;
-  border-bottom-color: rgba(247,245,240,0.7);
-}
-.waitlist-form .btn {
-  border-radius: 0;
-  padding: 13px 24px;
-}
+
+.waitlist-form input:first-child { border-radius: 2px 0 0 2px; }
+.waitlist-form input::placeholder { color: var(--ink); opacity: .65; }
+.waitlist-form input:focus { position: relative; z-index: 1; outline: 2px solid var(--moss-accent); outline-offset: -3px; }
+.waitlist-form .btn { border-radius: 0 2px 2px 0; white-space: nowrap; }
+
 .waitlist-note,
 .waitlist-success {
   margin-top: 14px;
+  color: var(--moss-accent);
   font-size: 12px;
-  color: rgba(247, 245, 240, 0.5);
-}
-.waitlist-success {
-  display: none;
-  color: var(--accent-sage);
-}
-.waitlist-form.is-success form#waitlistForm { display: none; }
-.waitlist-form.is-success .waitlist-success { display: block; }
-.hp-field {
-  position: absolute;
-  left: -9999px;
-}
-@media (max-width: 768px) {
-  .waitlist-fields { grid-template-columns: 1fr; }
-  .waitlist-form .btn { width: 100%; }
 }
 
-/* Footer */
+.waitlist-success { display: none; }
+.waitlist-form.is-success form#waitlistForm { display: none; }
+.waitlist-form.is-success .waitlist-success { display: block; }
+
+.hp-field { position: absolute; left: -9999px; }
+
 footer {
-  background: var(--text-charcoal);
-  color: rgba(247, 245, 240, 0.35);
-  padding: 44px 0;
+  margin-top: 82px;
+  background: var(--moss);
+  color: var(--moss-accent);
+}
+
+.footer-inner {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(245, 241, 232, .18);
   font-size: 13px;
 }
-footer a {
-  color: rgba(247, 245, 240, 0.45);
-  text-decoration: none;
-  transition: color 0.3s;
+
+footer .logo,
+footer .logo:hover { color: var(--cream); }
+
+footer a { color: var(--moss-accent); }
+footer a:hover { color: var(--cream); }
+
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; }
+  .hero-copy { padding-left: 42px; padding-right: 42px; }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature:nth-child(3) { padding-left: 0; border-left: 0; }
+  .feature:nth-child(n + 3) { border-top: 1px solid rgba(43, 38, 32, .16); }
+  .belief { padding-inline: 24px; }
 }
-footer a:hover { color: var(--bg-plaster); }
-footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
+
+@media (max-width: 780px) {
+  .container { padding-inline: 24px; }
+  .section { padding-block: 64px; }
+  .nav-inner { min-height: 68px; }
+  nav > a:not(.btn) { display: none; }
+  .hero-grid,
+  .motion-grid,
+  .collection-lead,
+  .story-grid,
+  .in-use-grid,
+  .specs-grid { grid-template-columns: 1fr; }
+  .hero-copy { padding: 62px 24px; }
+  .hero-visual .photo { min-height: 340px; }
+  .story-copy { order: -1; }
+  .tactile-grid { gap: 16px; }
+  .belief-grid { grid-template-columns: 1fr; }
+  .belief,
+  .belief:first-child,
+  .belief:last-child { padding: 25px 0; border-left: 0; border-top: 1px solid rgba(43, 38, 32, .12); }
+  .belief:first-child { border-top: 0; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .logo { gap: 8px; font-size: 20px; }
+  .logo svg { width: 34px; }
+  nav .btn { padding-inline: 14px; }
+  .hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .motion-notes,
+  .motion-visual,
+  .feature-grid,
+  .tactile-grid,
+  .spec-list { grid-template-columns: 1fr; }
+  .motion-caption { grid-column: auto; }
+  .feature,
+  .feature:first-child,
+  .feature:last-child,
+  .feature:nth-child(3) { padding: 22px 0; border-left: 0; border-top: 1px solid rgba(43, 38, 32, .16); }
+  .feature:first-child { border-top: 0; }
+  .tactile-grid { gap: 34px; }
+  .waitlist { padding-top: 70px; }
+  .waitlist-fields { grid-template-columns: 1fr; gap: 8px; }
+  .waitlist-form input,
+  .waitlist-form input:first-child,
+  .waitlist-form .btn { border: 1px solid var(--cream); border-radius: 2px; }
+  .waitlist-form .btn { border-color: var(--clay); }
+  .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
 <body>
-<script>history.scrollRestoration = 'manual';</script>
 <header>
-  <div class="container">
-    <div class="logo"><img src="logo-mark.png" alt="" class="logo-mark">Sarn Stone</div>
-    <nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#top" aria-label="Sarn Stone home">
+      <svg width="40" height="12" viewBox="0 0 66 18" aria-hidden="true">
+        <ellipse cx="9" cy="11" rx="8" ry="5.5" fill="#A96F4E"/>
+        <ellipse cx="32" cy="9" rx="10" ry="6.5" fill="#4A5450"/>
+        <ellipse cx="55" cy="11.5" rx="7" ry="5" fill="#8A8262"/>
+      </svg>
+      <span>Sarn Stone</span>
+    </a>
+    <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#products">Products</a>
       <a href="#contact">Contact</a>
+      <a href="#contact" class="btn">Join the Waitlist</a>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <picture class="hero-picture">
-    <source srcset="river-stones-flatlay-hero.webp" type="image/webp">
-    <img src="river-stones-flatlay-hero.jpg" alt="Natural river stones on a woven jute mat" class="hero-banner" width="2560" height="1144" fetchpriority="high" decoding="async">
-  </picture>
-  <div class="hero-overlay">
-    <div class="hero-eyebrow">Indoor sensory play, reimagined</div>
-    <h1>Nature underfoot.</h1>
-    <p>Silicone stepping stones cast from real river rock — biomimetic textures, earth tones, and the quiet confidence that comes from learning to trust your footing.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Join the Waitlist</a>
-      <a href="#about" class="btn btn-outline">Our Story</a>
-    </div>
-  </div>
-</section>
-
-<!-- Home Terrain -->
-<section class="home-terrain">
-  <div class="container terrain-layout">
-    <div class="terrain-copy fade-up">
-      <div class="section-label">Designed for motion</div>
-      <div class="section-title">Not a toy pile. A path.</div>
-      <p>Sarn Stone turns ordinary floor space into a small landscape: a route to test, rearrange, cross, return to, and master.</p>
-      <p>The shapes are quiet enough for the room, but rich enough for bare feet — weighted, tactile, and made to invite movement without shouting for attention.</p>
-      <div class="terrain-notes" aria-label="Sarn Stone design notes">
-        <div class="terrain-note"><strong>Balance</strong><span>Uneven surfaces encourage careful steps, posture shifts, and body awareness.</span></div>
-        <div class="terrain-note"><strong>Texture</strong><span>Stone-cast ridges give sensory feedback without bright plastic or noise.</span></div>
+<main id="top">
+  <section class="hero on-moss">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Indoor sensory play, reimagined</div>
+        <h1>A path across the living-room floor.</h1>
+        <p>Silicone stepping stones cast from real river rock — biomimetic textures, earth tones, and the quiet confidence that comes from learning to trust your footing.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Join the Waitlist</a>
+          <a href="#about" class="hero-link">Our story →</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <picture>
+          <source srcset="river-stones-flatlay-hero.webp" type="image/webp">
+          <img src="river-stones-flatlay-hero.jpg" alt="Natural river stones on a woven jute mat" class="photo" width="2560" height="1144" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
-    <div class="terrain-visual fade-up">
-      <picture>
-        <source srcset="kids-rock-lifestyle-02.webp" type="image/webp">
-        <img src="kids-rock-lifestyle-02.jpg" alt="Child's bare feet stepping onto textured Sarn Stone pieces" class="terrain-main" width="1194" height="896" loading="lazy" decoding="async">
-      </picture>
-      <picture>
-        <source srcset="texture-study-02.webp" type="image/webp">
-        <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" class="terrain-inset" width="900" height="1125" loading="lazy" decoding="async">
-      </picture>
-      <div class="terrain-caption">A landscape scaled for living rooms: warm, tactile, rearrangeable, and calm enough to leave out.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Product Features -->
-<section id="products">
-  <div class="container">
-    <div class="section-label">The Collection</div>
-    <div class="section-title">Heirlooms for the modern home.</div>
-    <div class="section-sub">A sculptural play set with enough presence to anchor the room, not disappear into it.</div>
-    <div class="product-showcase">
-      <div class="product-hero-card fade-up">
-        <img src="multi_shot.jpg" alt="Sarn Stone, the full collection" width="1280" height="697" loading="lazy" decoding="async">
-        <div class="product-hero-copy">
-          <div class="product-note">The Launch Set</div>
+  <section class="section motion">
+    <div class="container motion-grid">
+      <div class="motion-copy">
+        <div class="eyebrow">Designed for motion</div>
+        <h2 class="section-title">Not a toy pile. A path.</h2>
+        <p>Sarn Stone turns ordinary floor space into a small landscape: a route to test, rearrange, cross, return to, and master.</p>
+        <p>The shapes are quiet enough for the room, but rich enough for bare feet — weighted, tactile, and made to invite movement without shouting for attention.</p>
+        <div class="motion-notes" aria-label="Sarn Stone design notes">
+          <article class="motion-note">
+            <h3>Balance</h3>
+            <p>Uneven surfaces encourage careful steps, posture shifts, and body awareness.</p>
+          </article>
+          <article class="motion-note">
+            <h3>Texture</h3>
+            <p>Stone-cast ridges give sensory feedback without bright plastic or noise.</p>
+          </article>
+        </div>
+      </div>
+      <div class="motion-visual">
+        <picture>
+          <source srcset="kids-rock-lifestyle-02.webp" type="image/webp">
+          <img src="kids-rock-lifestyle-02.jpg" alt="Child's bare feet stepping onto textured Sarn Stone pieces" class="photo motion-main" width="1194" height="896" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="texture-study-02.webp" type="image/webp">
+          <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" class="photo motion-detail" width="900" height="1125" loading="lazy" decoding="async">
+        </picture>
+        <p class="motion-caption">A landscape scaled for living rooms: warm, tactile, rearrangeable, and calm enough to leave out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section collection" id="products">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">The Collection</div>
+        <h2 class="section-title">Heirlooms for the modern home.</h2>
+        <p class="section-intro">A sculptural play set with enough presence to anchor the room, not disappear into it.</p>
+      </div>
+      <div class="collection-lead">
+        <div class="launch-copy">
+          <div class="launch-note">The Launch Set</div>
           <h3>Six silicone stones, each shaped by a real river rock.</h3>
+        </div>
+        <div class="launch-copy">
           <p>Designed for balance paths, obstacle courses, and open-ended sensory play, with enough weight and restraint to feel considered in a living room.</p>
         </div>
       </div>
-      <div class="features fade-up">
-        <div class="feature">
-          <h3>Biomimetic Texture</h3>
+      <picture>
+        <source srcset="multi_shot.webp" type="image/webp">
+        <img src="multi_shot.jpg" alt="Sarn Stone, the full collection" class="photo collection-image" width="1280" height="697" loading="lazy" decoding="async">
+      </picture>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Biomimetic texture</h3>
           <p>Cast from the grooves and ridges of natural river stone. Every surface holds the memory of water and time.</p>
-        </div>
-        <div class="feature">
-          <h3>Quiet Safety</h3>
+        </article>
+        <article class="feature">
+          <h3>Quiet safety</h3>
           <p>Heavy, non-slip silicone that grips any floor and grips your attention only when it earns it.</p>
-        </div>
-        <div class="feature">
-          <h3>Earth Tones</h3>
+        </article>
+        <article class="feature">
+          <h3>Earth tones</h3>
           <p>Colors drawn from riverbeds and forests. Stones that belong on a coffee table as much as in a playroom.</p>
-        </div>
-        <div class="feature">
-          <h3>Built to Outlast</h3>
+        </article>
+        <article class="feature">
+          <h3>Built to outlast</h3>
           <p>Durable enough for the wildest leaps. Clean with a damp cloth, or pop them in the dishwasher.</p>
-        </div>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Tactile Studies -->
-<section class="tactile-section">
-  <div class="container">
-    <div class="section-label">Tactile Studies</div>
-    <div class="section-title">Quiet surfaces, made to be touched.</div>
-    <div class="section-sub">Close crops of stone, silicone, and shadow — the material language behind the prototype.</div>
-    <div class="tactile-grid fade-up">
-      <figure class="tactile-card">
-        <picture>
-          <source srcset="texture-study-01.webp" type="image/webp">
-          <img src="texture-study-01.jpg" alt="Close-up of rounded stone forms on warm woven fabric" width="900" height="1125" loading="lazy" decoding="async">
-        </picture>
-        <figcaption>Rounded weight</figcaption>
-      </figure>
-      <figure class="tactile-card">
-        <picture>
-          <source srcset="texture-study-02.webp" type="image/webp">
-          <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" width="900" height="1125" loading="lazy" decoding="async">
-        </picture>
-        <figcaption>River texture</figcaption>
-      </figure>
-      <figure class="tactile-card">
-        <picture>
-          <source srcset="texture-study-03.webp" type="image/webp">
-          <img src="texture-study-03.jpg" alt="Editorial crop of Sarn Stone prototype forms in neutral earth tones" width="900" height="1125" loading="lazy" decoding="async">
-        </picture>
-        <figcaption>Soft geometry</figcaption>
-      </figure>
+  <section class="section tactile">
+    <div class="container">
+      <div class="section-heading centered">
+        <div class="eyebrow centered">Tactile Studies</div>
+        <h2 class="section-title">Quiet surfaces, made to be touched.</h2>
+        <p class="section-intro">Close crops of stone, silicone, and shadow — the material language behind the prototype.</p>
+      </div>
+      <div class="tactile-grid">
+        <figure class="tactile-card">
+          <picture>
+            <source srcset="texture-study-01.webp" type="image/webp">
+            <img src="texture-study-01.jpg" alt="Close-up of rounded stone forms on warm woven fabric" class="photo" width="900" height="1125" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Rounded weight</figcaption>
+        </figure>
+        <figure class="tactile-card">
+          <picture>
+            <source srcset="texture-study-02.webp" type="image/webp">
+            <img src="texture-study-02.jpg" alt="Close-up of earthy stone texture and soft matte surface" class="photo" width="900" height="1125" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>River texture</figcaption>
+        </figure>
+        <figure class="tactile-card">
+          <picture>
+            <source srcset="texture-study-03.webp" type="image/webp">
+            <img src="texture-study-03.jpg" alt="Editorial crop of Sarn Stone prototype forms in neutral earth tones" class="photo" width="900" height="1125" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Soft geometry</figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Story + Specs -->
-<section id="about" class="section-alt">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label" style="text-align:left;">Our Story</div>
-        <h2>Bringing the Riverbank Home</h2>
+  <section class="section story on-moss" id="about">
+    <div class="container story-grid">
+      <img src="kids-rock-alt.jpg" alt="Child stepping across Sarn Stone stepping stones in a warm home setting" class="photo" width="1280" height="697" loading="lazy" decoding="async">
+      <div class="story-copy">
+        <div class="eyebrow">Our Story</div>
+        <h2>Bringing the riverbank home.</h2>
         <p>We watched our children longing for the forest floor — for the uneven joy of stone and root. We wanted to bring that grounding tactile experience indoors, without the neon plastic, without the clutter, without compromise.</p>
         <p>Sarn Stone stepping stones are cast from real river rocks, capturing every ridge and groove. Made from food-grade silicone, they are heavy enough to stay put, soft enough to feel like the earth itself. They belong in a living room as naturally as a book or a candle.</p>
-        <p>This is not a toy. It is an invitation to move through the world with curiosity, balance, and care.</p>
+        <p class="story-closing">This is not a toy. It is an invitation to move through the world with curiosity, balance, and care.</p>
       </div>
-      <img src="kids-rock-alt.jpg" alt="Child stepping across Sarn Stone stepping stones in a warm home setting" class="about-img" width="1280" height="697" loading="lazy" decoding="async">
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
-    <div class="section-label">In Use</div>
-    <div class="lifestyle-card fade-up">
+  <section class="section in-use">
+    <div class="container in-use-grid">
       <picture>
         <source srcset="site-reference-2026-05-12.webp" type="image/webp">
-        <img src="site-reference-2026-05-12.jpg" alt="Child balancing across Sarn Stone stepping stones in a warm playroom" class="lifestyle-img" width="1280" height="696" loading="lazy" decoding="async">
+        <img src="site-reference-2026-05-12.jpg" alt="Child balancing across Sarn Stone stepping stones in a warm playroom" class="photo" width="1280" height="696" loading="lazy" decoding="async">
       </picture>
-      <div class="lifestyle-copy">
-        <h3>A play object that can stay in the room.</h3>
+      <div class="in-use-copy">
+        <div class="eyebrow">In Use</div>
+        <h2>A play object that can stay in the room.</h2>
         <p>The stones are meant to live somewhere between furniture, sculpture, and obstacle course — beautiful enough to leave out, sturdy enough to become part of the daily path.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Specs Strip -->
-<section>
-  <div class="container">
-    <div class="section-label">Made for Real Life</div>
-    <div class="section-title">What goes into them matters.</div>
-    <div class="specs-grid">
-      <div class="spec-item">
-        <span class="spec-icon">&#9654;</span>
-        <div class="spec-label">Material</div>
-        <div class="spec-value">Food-grade silicone</div>
+  <section class="section specs">
+    <div class="container specs-grid">
+      <div class="specs-copy">
+        <div class="eyebrow">Made for Real Life</div>
+        <h2 class="section-title">What goes into them matters.</h2>
+        <div class="spec-list">
+          <div class="spec-item"><div class="spec-label">Material</div><div class="spec-value">Food-grade silicone</div></div>
+          <div class="spec-item"><div class="spec-label">Surface</div><div class="spec-value">Cast from real river stone</div></div>
+          <div class="spec-item"><div class="spec-label">Care</div><div class="spec-value">Dishwasher-safe</div></div>
+          <div class="spec-item"><div class="spec-label">Grip</div><div class="spec-value">Non-slip, weighted base</div></div>
+          <div class="spec-item"><div class="spec-label">Use</div><div class="spec-value">Indoor / sensory play</div></div>
+          <div class="spec-item"><div class="spec-label">Age</div><div class="spec-value">Open-ended, 0–99</div></div>
+        </div>
       </div>
-      <div class="spec-item">
-        <span class="spec-icon">&#9670;</span>
-        <div class="spec-label">Surface</div>
-        <div class="spec-value">Cast from real river stone</div>
-      </div>
-      <div class="spec-item">
-        <span class="spec-icon">&#9733;</span>
-        <div class="spec-label">Care</div>
-        <div class="spec-value">Dishwasher-safe</div>
-      </div>
-      <div class="spec-item">
-        <span class="spec-icon">&#9632;</span>
-        <div class="spec-label">Grip</div>
-        <div class="spec-value">Non-slip, weighted base</div>
-      </div>
-      <div class="spec-item">
-        <span class="spec-icon">&#9673;</span>
-        <div class="spec-label">Use</div>
-        <div class="spec-value">Indoor / sensory play</div>
-      </div>
-      <div class="spec-item">
-        <span class="spec-icon">&#9679;</span>
-        <div class="spec-label">Age</div>
-        <div class="spec-value">Open-ended, 0–99</div>
+      <div class="specs-visual">
+        <img src="stone-lineup.jpg" alt="Sarn Stone stepping stones arranged in a calm path across a woven rug" class="photo" width="800" height="477" loading="lazy" decoding="async">
+        <img src="stones-detail.jpg" alt="Close-up of natural stone textures and earth tones" class="photo detail-photo" width="1280" height="697" loading="lazy" decoding="async">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Detail Image -->
-<section style="padding: 0;">
-  <div class="section-img-wrap">
-    <img src="stones-detail.jpg" alt="Close-up of natural stone textures and earth tones" width="1280" height="697" loading="lazy" decoding="async">
-  </div>
-</section>
-
-<section style="padding: 36px 0 0;">
-  <div class="section-img-wrap">
-    <img src="stone-lineup.jpg" alt="Sarn Stone stepping stones arranged in a calm path across a woven rug" width="800" height="477" loading="lazy" decoding="async">
-  </div>
-</section>
-
-<!-- Design Principles -->
-<section class="section-alt">
-  <div class="container">
-    <div class="section-label">Why They Exist</div>
-    <div class="section-title">Three things we believe about play.</div>
-    <div class="principles">
-      <div class="principle">
-        <div class="principle-num">01</div>
-        <div class="principle-text">
-          <h4>Sensory input shapes confidence.</h4>
+  <section class="section beliefs">
+    <div class="container">
+      <div class="section-heading centered">
+        <div class="eyebrow centered">Why They Exist</div>
+        <h2 class="section-title">Three things we believe about play.</h2>
+      </div>
+      <div class="belief-grid">
+        <article class="belief">
+          <div class="belief-num">01</div>
+          <h3>Sensory input shapes confidence.</h3>
           <p>Children who learn to trust uneven, textured surfaces develop better balance and body awareness. These stones give them that learning environment at home.</p>
-        </div>
-      </div>
-      <div class="principle">
-        <div class="principle-num">02</div>
-        <div class="principle-text">
-          <h4>Quiet materials invite deeper play.</h4>
+        </article>
+        <article class="belief">
+          <div class="belief-num">02</div>
+          <h3>Quiet materials invite deeper play.</h3>
           <p>When a toy doesn't light up or make noise, a child's imagination has to do the work. These stones create space for longer, more focused sessions.</p>
-        </div>
-      </div>
-      <div class="principle">
-        <div class="principle-num">03</div>
-        <div class="principle-text">
-          <h4>Objects meant to last should look that way.</h4>
+        </article>
+        <article class="belief">
+          <div class="belief-num">03</div>
+          <h3>Objects meant to last should look that way.</h3>
           <p>We designed these to age gracefully — to feel more themselves the more they're used, not to crack or fade or become furniture. Quality as a value, not a claim.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="waitlist on-moss" id="contact">
+    <div class="container">
+      <div class="waitlist-inner">
+        <div class="eyebrow centered">Waitlist</div>
+        <h2>Stay close to the launch.</h2>
+        <p class="waitlist-copy">Leave your name and we'll be in touch when Sarn Stone is ready to ship. Thoughtful updates only, sent with a little more care than urgency.</p>
+        <div class="waitlist-form" id="waitlistFormWrap">
+          <form action="https://formsubmit.co/hello@sarnstone.com" method="POST" id="waitlistForm">
+            <input type="hidden" name="_subject" value="Sarn Stone waitlist signup">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://sarnstone.com/#contact?joined=1">
+            <div class="hp-field" aria-hidden="true">
+              <label>Leave this field empty <input type="text" name="_honey"></label>
+            </div>
+            <div class="waitlist-fields">
+              <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+              <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+              <button type="submit" class="btn">Join the Waitlist</button>
+            </div>
+          </form>
+          <div class="waitlist-success">Thanks, you're on the list. We'll be in touch when Sarn Stone is ready.</div>
+          <div class="waitlist-note">No spam. No noise. Just the launch.</div>
         </div>
       </div>
+      <footer>
+        <div class="footer-inner">
+          <a class="logo" href="#top" aria-label="Sarn Stone home">
+            <svg width="40" height="12" viewBox="0 0 66 18" aria-hidden="true">
+              <ellipse cx="9" cy="11" rx="8" ry="5.5" fill="#C08A66"/>
+              <ellipse cx="32" cy="9" rx="10" ry="6.5" fill="#F5F1E8"/>
+              <ellipse cx="55" cy="11.5" rx="7" ry="5" fill="#9AA79F"/>
+            </svg>
+            <span>Sarn Stone</span>
+          </a>
+          <span>© 2026 Sarn Stone · <a href="mailto:hello@sarnstone.com">hello@sarnstone.com</a></span>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta" id="contact">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-kicker">Waitlist</div>
-      <h2>Stay close to the launch.</h2>
-      <p>Leave your name and we'll be in touch when Sarn Stone is ready to ship. Thoughtful updates only, sent with a little more care than urgency.</p>
-      <div class="waitlist-form" id="waitlistFormWrap">
-        <form action="https://formsubmit.co/hello@sarnstone.com" method="POST" id="waitlistForm">
-          <input type="hidden" name="_subject" value="Sarn Stone waitlist signup">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://sarnstone.com/#contact?joined=1">
-          <div class="hp-field" aria-hidden="true">
-            <label>Leave this field empty <input type="text" name="_honey"></label>
-          </div>
-          <div class="waitlist-fields">
-            <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
-            <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
-            <button type="submit" class="btn btn-primary">Join the Waitlist</button>
-          </div>
-        </form>
-        <div class="waitlist-success">Thanks, you're on the list. We'll be in touch when Sarn Stone is ready.</div>
-        <div class="waitlist-note">No spam. No noise. Just the launch.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <span>&copy; 2026 Sarn Stone. All rights reserved.</span>
-    <span><a href="mailto:hello@sarnstone.com">hello@sarnstone.com</a></span>
-  </div>
-</footer>
+  </section>
+</main>
 
 <script>
   (function () {
     if (window.location.search.includes('joined=1')) {
       var wrap = document.getElementById('waitlistFormWrap');
       if (wrap) wrap.classList.add('is-success');
-      if (window.location.hash !== '#contact') {
-        window.location.hash = 'contact';
-      }
+      if (window.location.hash !== '#contact') window.location.hash = 'contact';
     }
 
-    var header = document.querySelector('header');
-    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a:not(.btn)'));
     var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
-
-    function updateHeader() {
-      if (!header) return;
-      header.classList.toggle('scrolled', window.scrollY > 24);
-    }
 
     function setActiveLink(id) {
       navLinks.forEach(function (link) {
-        var isMatch = link.getAttribute('href') === '#' + id;
-        link.classList.toggle('is-active', isMatch);
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
       });
     }
 
     if ('IntersectionObserver' in window && sections.length) {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
         });
-      }, {
-        rootMargin: '-45% 0px -45% 0px',
-        threshold: 0
-      });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
-      sections.forEach(function (section) {
-        observer.observe(section);
-      });
+      sections.forEach(function (section) { observer.observe(section); });
     }
-
-    updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
   })();
 </script>
-
 </body>
 </html>
